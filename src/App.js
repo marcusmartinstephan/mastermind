@@ -1,5 +1,5 @@
 import "./App.css";
-
+import { useState, useRef } from "react";
 import item_1 from "./images/item_1.png";
 import item_2 from "./images/item_2.png";
 import item_3 from "./images/item_3.png";
@@ -7,9 +7,39 @@ import item_4 from "./images/item_4.png";
 import item_5 from "./images/item_5.png";
 import item_6 from "./images/item_6.png";
 
+const toGuess = 4;
+const maxCols = 5;
+const maxRows = 9;
 const items = [null, item_1, item_2, item_3, item_4, item_5, item_6];
 
 function App() {
+  const [round, setRound] = useState(1);
+
+  const createRow = (row) => {
+    let rowClass = row === 1 ? "row row-1" : "row";
+    if (row > round) {
+      rowClass += " rowDark";
+    }
+    return <div className={rowClass}>ROW</div>;
+  };
+
+  const createPlayField = () => {
+    return (
+      <>
+        {[...Array(maxRows).keys()]
+          .filter(function (value) {
+            return value !== 0;
+          })
+          .sort(function (a, b) {
+            return b - a;
+          })
+          .map((row) => {
+            return createRow(row);
+          })}
+      </>
+    );
+  };
+
   const createItems = (itemsArray) => {
     return itemsArray.map((aItem) => {
       return (
@@ -60,7 +90,7 @@ function App() {
             </div>
           </div>
           <div className="spaceCol"></div>
-          <div className="playField"></div>
+          <div className="playField">{createPlayField()}</div>
           <div className="spaceCol"></div>
         </div>
       </header>
