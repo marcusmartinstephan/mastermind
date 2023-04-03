@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +13,131 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.board {
+  width: 80%;
+  height: 780px;
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.leftField {
+  width: 20%;
+  height: 780px;
+  border: white solid 2px;
+  padding: 10px;
+  background-color: #4d641c;
+  color: black;
+  border-radius: 25px;
+}
+
+.leftField .headline {
+  font-size: 18px;
+  font-weight: 800px;
+  margin-bottom: 50px;
+  margin-top: 15px;
+}
+
+.itemsColumns {
+  display: flex;
+  flex-direction: row;
+  margin-left: 3%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.playField {
+  width: 70%;
+  height: 780px;
+  background-image: url("../public/images/playfield_items.png");
+  background-size: 100% 800px;
+  background-repeat: no-repeat;
+  padding: 10px;
+  border: white solid 2px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.playField .row {
+  width: 80%;
+  height: 75px;
+  border: yellow solid 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: gray;
+  opacity: 0.7;
+  align-items: center;
+}
+
+.playField .rowDark {
+  opacity: 0.2;
+}
+
+.playField .row-1 {
+  margin-bottom: 10%;
+}
+
+.playField .col {
+}
+
+.playField .col-1 {
+  margin-left: 5px;
+  width: 120px;
+}
+
+.itemsPin {
+  width: 95px;
+  height: 95px;
+  padding: 5px;
+  -webkit-user-drag: element;
+  cursor: pointer;
+}
+
+.leftField .itemsPin:hover {
+  transform: scale(1.2);
+}
+
+.playField .itemSpot {
+  width: 55px;
+  height: 55px;
+}
+
+.playField .owl {
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+}
+
+.playField .owl:hover {
+  transform: scale(1.2);
+}
+
+.resultOwl {
+  width: 25px;
+  height: 25px;
+}
+
+.playField .result-col {
+  background-color: white;
+}
+
+.spaceCol {
+  width: 25px;
+}
+
+.playField .combinationRow {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+.c100 {
+  width: 100px;
+}
+
+.c55 {
+  width: 55px;
 }
